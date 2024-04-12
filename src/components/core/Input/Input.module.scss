@@ -1,0 +1,66 @@
+@import 'src/styles/settings.scss';
+
+.c-input {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  padding: $space 0 0;
+  margin-top: $space-s;
+  border-bottom: $space-xxs solid $color-light-purple;
+
+  &__field {
+    width: $layout-width;
+
+    padding: $space-s 0;
+
+    font-size: $fs-medium;
+    color: $color-black;
+
+    background: transparent;
+    transition: border-color 0.2s;
+
+    &::placeholder {
+      color: transparent;
+    }
+
+    &:placeholder-shown ~ .c-input__label {
+      font-size: $fs-medium;
+      cursor: text;
+      top: $space-m;
+    }
+
+    &:required,
+    &:invalid {
+      box-shadow: none;
+    }
+
+    &:focus {
+      ~ .c-input__label {
+        position: absolute;
+        display: block;
+
+        font-size: $fs-base;
+        color: $color-light-purple;
+
+        top: 0;
+        transition: 0.2s;
+      }
+
+      padding-bottom: $space-s;
+      border-width: $space-xxs;
+      border-image-slice: 1;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    display: block;
+
+    font-size: $fs-base;
+    color: $color-dark-purple;
+
+    top: 0;
+    transition: 0.2s;
+  }
+}

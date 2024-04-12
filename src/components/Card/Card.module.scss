@@ -1,0 +1,18 @@
+@import 'src/styles/settings.scss';
+
+.c-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: $space-xl;
+  margin: $space-m;
+  border: $space-xxs solid $color-medium-purple;
+  border-radius: $space-s;
+
+  box-shadow: $color-light-purple $shadow-h-offset $shadow-v-offset $shadow-blur;
+
+  &__title {
+    font-size: $fs-extra-large;
+  }
+}

@@ -1,0 +1,41 @@
+@import 'src/styles/settings.scss';
+
+.c-login-page {
+  height: $layout-height;
+  width: $layout-width;
+
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+  &__container {
+    width: $container-width;
+  }
+
+  &__form {
+    width: $form-width;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__icon {
+    height: $fs-large;
+    width: $fs-large;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+
+    font-size: $fs-medium;
+  }
+
+  &__link-text {
+    padding: $space-xs $space-s;
+
+    color: $color-medium-purple;
+    text-decoration: none;
+  }
+}

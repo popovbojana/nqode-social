@@ -1,8 +1,6 @@
 @import 'src/styles/settings.scss';
 
 .c-app {
-  padding: $space-m;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,12 +9,5 @@
   &__title {
     font-family: 'Roboto';
     font-weight: $fw-medium;
-  }
-
-  &__button-container {
-    width: 350px;
-
-    display: flex;
-    flex-direction: column;
   }
 }
