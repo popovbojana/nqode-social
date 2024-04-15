@@ -1,27 +1,28 @@
 @import 'src/styles/settings.scss';
 
 .c-button {
-  padding: $space-xs $space-s;
-  margin: $space-s;
+  padding: $space-xs $space-l;
+  margin-top: $space-m;
+  border: 1px solid $color-dark-purple;
+  border-radius: $space-xs;
 
-  background: $color-blue;
+  background: $color-dark-purple;
   color: $color-white;
 
-  font-size: $fs-base;
-  border: 1px solid $color-blue;
+  font-size: $fs-medium;
   cursor: pointer;
 
   &:hover {
     background: $color-white;
-    color: $color-blue;
+    color: $color-dark-purple;
   }
 
   &--secondary {
     background: $color-white;
-    color: $color-blue;
+    color: $color-dark-purple;
 
     &:hover {
-      background: $color-blue;
+      background: $color-dark-purple;
       color: $color-white;
     }
   }
