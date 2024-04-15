@@ -1,0 +1,14 @@
+@import 'src/styles/settings.scss';
+
+.c-message {
+  display: flex;
+  margin-top: $space;
+  color: $color-red;
+
+  &__icon {
+    height: $fs-base;
+    width: $fs-base;
+
+    margin-right: $space-xs;
+  }
+}
