@@ -1,0 +1,9 @@
+@import 'src/styles/settings.scss';
+
+.c-layout {
+  display: flex;
+
+  &__content {
+    flex: 1;
+  }
+}
