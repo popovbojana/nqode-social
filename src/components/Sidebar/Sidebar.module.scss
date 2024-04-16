@@ -1,0 +1,49 @@
+@import 'src/styles/settings.scss';
+
+.c-sidebar {
+  height: $layout-height;
+  width: $sidebar-width;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: $space-s;
+  border-radius: $space-s;
+
+  background-color: $color-lighest-purple;
+
+  &__title {
+    padding: $space-m;
+
+    color: $color-dark-purple;
+    text-align: center;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+
+    padding: $space-s;
+    margin-bottom: $space-s;
+
+    border: $space-xxxs solid $color-light-purple;
+    border-radius: $space-xs;
+
+    font-size: $fs-medium;
+    color: $color-light-purple;
+
+    &:hover,
+    &--active {
+      background-color: $color-light-purple;
+      color: $color-lighest-purple;
+    }
+  }
+
+  &__icon {
+    height: $fs-large;
+    width: $fs-large;
+
+    margin-right: $space-m;
+  }
+}

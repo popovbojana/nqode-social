@@ -2,12 +2,8 @@
 
 .c-app {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
-  &__title {
-    font-family: 'Roboto';
-    font-weight: $fw-medium;
+  &__content {
+    flex: 1;
   }
 }
