@@ -30,12 +30,11 @@
       top: $space-m;
     }
 
-    &:required,
-    &:invalid {
-      box-shadow: none;
-    }
-
     &:focus {
+      padding-bottom: $space-s;
+      border-width: $space-xxs;
+      border-image-slice: 1;
+
       ~ .c-input__label {
         position: absolute;
         display: block;
@@ -47,9 +46,16 @@
         transition: 0.2s;
       }
 
-      padding-bottom: $space-s;
-      border-width: $space-xxs;
-      border-image-slice: 1;
+      ~ .c-input__label--error {
+        position: absolute;
+        display: block;
+
+        font-size: $fs-base;
+        color: $color-red;
+
+        top: 0;
+        transition: 0.2s;
+      }
     }
   }
 
@@ -62,5 +68,13 @@
 
     top: 0;
     transition: 0.2s;
+
+    &--error {
+      color: $color-red;
+    }
+  }
+
+  &--error {
+    border-bottom: $space-xxs solid $color-red;
   }
 }
