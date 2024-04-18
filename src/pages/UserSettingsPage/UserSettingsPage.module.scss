@@ -1,0 +1,18 @@
+@import 'src/styles/settings.scss';
+
+.c-settings-page {
+  height: $layout-height;
+  width: $layout-width;
+
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+  &__form {
+    width: 500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}

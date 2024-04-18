@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Input.module.scss';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  label: string;
+  label?: string;
   icon?: JSX.Element;
   error: boolean;
 }
@@ -26,11 +26,13 @@ const Input: React.FC<InputProps> = ({
         value={value}
         onChange={onChange}
       />
-      <label
-        className={`${classes['c-input__label']} ${classes[error ? 'c-input__label--error' : '']}`}
-      >
-        {label}
-      </label>
+      {label && (
+        <label
+          className={`${classes['c-input__label']} ${classes[error ? 'c-input__label--error' : '']}`}
+        >
+          {label}
+        </label>
+      )}
       {icon}
     </div>
   );

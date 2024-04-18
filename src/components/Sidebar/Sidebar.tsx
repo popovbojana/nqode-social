@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Sidebar.module.scss';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { UserIcon, ArrowRightStartOnRectangleIcon } from '@heroicons/react/24/solid';
+import { UserIcon, ArrowRightStartOnRectangleIcon, Cog8ToothIcon } from '@heroicons/react/24/solid';
 import { getUserIdFromToken } from 'src/services/AuthService';
 
 interface SidebarProps {
@@ -46,6 +46,10 @@ const Sidebar: React.FC<SidebarProps> = ({ items }) => {
         >
           <UserIcon className={`${classes['c-sidebar__icon']}`} />
           <span>Profile</span>
+        </Link>
+        <Link to='/settings' className={`${classes['c-sidebar__link']} ${isActive('/settings')}`}>
+          <Cog8ToothIcon className={`${classes['c-sidebar__icon']}`} />
+          <span>Settings</span>
         </Link>
         <div onClick={handleLogout} className={`${classes['c-sidebar__link']}`}>
           <ArrowRightStartOnRectangleIcon className={`${classes['c-sidebar__icon']}`} />
