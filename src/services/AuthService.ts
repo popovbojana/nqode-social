@@ -1,3 +1,4 @@
+import { jwtDecode } from 'jwt-decode';
 import axios from 'src/config/axios/axios';
 import AuthenticationRequest from 'src/models/AuthenticationRequest';
 import NewUser from 'src/models/NewUser';
@@ -8,4 +9,8 @@ export const authenticate = async (authenticationRequest: AuthenticationRequest)
 
 export const register = async (newUser: NewUser) => {
   return await axios.post('auth/register', newUser);
+};
+
+export const getUserIdFromToken = () => {
+  return jwtDecode(JSON.parse(localStorage.getItem('token')!)).id;
 };
