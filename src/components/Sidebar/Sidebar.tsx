@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './Sidebar.module.scss';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { UserIcon, ArrowRightStartOnRectangleIcon } from '@heroicons/react/24/solid';
 
 interface SidebarProps {
@@ -9,8 +9,15 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ items }) => {
   const location = useLocation();
+  const navigate = useNavigate();
+
   const isActive = (itemPath: string) => {
     return location.pathname === itemPath ? classes['c-sidebar__link--active'] : '';
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate('/login');
   };
 
   return (
@@ -34,7 +41,7 @@ const Sidebar: React.FC<SidebarProps> = ({ items }) => {
           <UserIcon className={`${classes['c-sidebar__icon']}`} />
           <span>Profile</span>
         </Link>
-        <div className={`${classes['c-sidebar__link']}`}>
+        <div onClick={handleLogout} className={`${classes['c-sidebar__link']}`}>
           <ArrowRightStartOnRectangleIcon className={`${classes['c-sidebar__icon']}`} />
           <span>Logout</span>
         </div>

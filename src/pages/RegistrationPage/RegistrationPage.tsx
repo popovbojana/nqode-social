@@ -9,6 +9,7 @@ import { register } from 'src/services/AuthService';
 import Message from 'src/components/Message/Message';
 import NewUser from 'src/models/NewUser';
 import { ExclamationCircleIcon } from '@heroicons/react/24/outline';
+import { toast } from 'react-toastify';
 
 const RegistrationPage: React.FC = () => {
   const navigate = useNavigate();
@@ -69,13 +70,12 @@ const RegistrationPage: React.FC = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (!validateInput()) {
-      return;
-    } else {
+    if (validateInput()) {
       register(newUser)
         .then((response) => {
           if (response.status == 201) {
             navigate('/login');
+            toast.success('Successfully registered!');
           }
         })
         .catch((error) => {
