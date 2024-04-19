@@ -1,0 +1,64 @@
+@import 'src/styles/settings.scss';
+
+.c-user-profile-page {
+  &__header {
+    display: flex;
+
+    margin: $space-xl;
+
+    border: $space-xxxs $color-light-purple;
+    border-radius: $space-s;
+
+    box-shadow: $color-light-purple $shadow-h-offset $shadow-v-offset $shadow-blur;
+  }
+
+  &__photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: $photo-width;
+
+    color: $color-light-purple;
+  }
+
+  &__data {
+    display: flex;
+    justify-content: space-between;
+
+    width: $layout-width;
+
+    margin: $space-l;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    width: $column-width;
+
+    margin: $space-m;
+
+    border-radius: $space-s;
+
+    font-style: italic;
+    font-size: $fs-medium;
+    color: $color-medium-purple;
+
+    &--important {
+      font-style: normal;
+      font-size: $fs-extra-large;
+      font-weight: $fw-extra-bold;
+      color: $color-dark-purple;
+    }
+  }
+
+  &__posts {
+    margin: $space-xl;
+
+    border: $space-xxxs solid $color-light-purple;
+    border-radius: $space-s;
+  }
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './Sidebar.module.scss';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { UserIcon, ArrowRightStartOnRectangleIcon } from '@heroicons/react/24/solid';
+import { getUserIdFromToken } from 'src/services/AuthService';
 
 interface SidebarProps {
   items: { icon: JSX.Element; name: string; path: string }[];
@@ -10,6 +11,8 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ items }) => {
   const location = useLocation();
   const navigate = useNavigate();
+
+  const id = getUserIdFromToken();
 
   const isActive = (itemPath: string) => {
     return location.pathname === itemPath ? classes['c-sidebar__link--active'] : '';
@@ -37,7 +40,10 @@ const Sidebar: React.FC<SidebarProps> = ({ items }) => {
       </div>
 
       <div>
-        <Link to='/profile' className={`${classes['c-sidebar__link']} ${isActive('/profile')}`}>
+        <Link
+          to={`/profile/${id}`}
+          className={`${classes['c-sidebar__link']} ${isActive('/profile')}`}
+        >
           <UserIcon className={`${classes['c-sidebar__icon']}`} />
           <span>Profile</span>
         </Link>
