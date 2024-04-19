@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import UserProfilePage from './pages/UserProfilePage/UserProfilePage';
 import UserSettinsPage from './pages/UserSettingsPage/UserSettingsPage';
 import HomePage from './pages/HomePage/HomePage';
+import FriendRequestsPage from './pages/FriendRequestsPage/FriendRequestsPage';
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
           <Route path='profile/:id' element={<UserProfilePage />} />
           <Route path='settings' element={<UserSettinsPage />} />
           <Route path='home' element={<HomePage />} />
+          <Route path='friend-requests' element={<FriendRequestsPage />} />
         </Route>
       </Routes>
     </>
