@@ -5,6 +5,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import UserProfilePage from './pages/UserProfilePage/UserProfilePage';
+import UserSettinsPage from './pages/UserSettingsPage/UserSettingsPage';
 
 const App = () => {
   return (
@@ -25,7 +26,8 @@ const App = () => {
         <Route path='/login' element={<LoginPage />} />
         <Route path='/registration' element={<RegistrationPage />} />
         <Route path='/' element={<ProtectedRoute />}>
-          <Route element={<UserProfilePage />} path='profile/:id' />
+          <Route path='profile/:id' element={<UserProfilePage />} />
+          <Route path='settings' element={<UserSettinsPage />} />
         </Route>
       </Routes>
     </>
