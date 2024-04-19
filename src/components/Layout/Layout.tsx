@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import classes from './Layout.module.scss';
 import { sidebarItems } from 'src/utils/SidebarItems';
 import Sidebar from '../Sidebar/Sidebar';
+import SearchBar from '../SearchBar/SearchBar';
 
 interface LayoutProps {
   children: JSX.Element | JSX.Element[];
@@ -17,7 +18,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className={classes['c-layout']}>
       {token && <Sidebar items={sidebarItems} />}
-      <div className={classes['c-layout__content']}>{children}</div>
+      <div className={classes['c-layout__content']}>
+        <SearchBar />
+        {children}
+      </div>
     </div>
   );
 };

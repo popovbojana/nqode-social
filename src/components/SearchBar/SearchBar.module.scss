@@ -1,0 +1,73 @@
+@import 'src/styles/settings.scss';
+
+.c-search-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: $space-m;
+
+  &__input {
+    display: flex;
+    align-items: center;
+
+    width: $container-width;
+    height: $space-xl;
+
+    background-color: $color-white;
+
+    padding: 0 $space;
+    border-radius: $space-s;
+    box-shadow: 0 0 $space-s $color-lighest-purple;
+  }
+
+  &__icon {
+    height: $fs-medium;
+    width: $fs-medium;
+
+    color: $color-dark-purple;
+  }
+
+  &__field {
+    height: $layout-full-height;
+    width: $layout-width;
+
+    background-color: transparent;
+    border: none;
+
+    font-size: $fs-medium;
+
+    margin-left: $space-xs;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__results-list {
+    position: absolute;
+    top: $space-xxl;
+
+    display: flex;
+    flex-direction: column;
+
+    max-height: $sidebar-width;
+    width: $container-width;
+    background-color: $color-white;
+
+    margin-top: $space-xxs;
+    box-shadow: 0 0 $space-s $color-lighest-purple;
+    border-radius: $space-s;
+
+    overflow-y: auto;
+  }
+
+  &__result {
+    height: $space-xl;
+    padding: $space-s $space-m;
+
+    &:hover {
+      background-color: $color-lighest-purple;
+    }
+  }
+}

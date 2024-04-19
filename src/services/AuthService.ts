@@ -3,12 +3,12 @@ import axios from 'src/config/axios/axios';
 import AuthenticationRequest from 'src/models/AuthenticationRequest';
 import NewUser from 'src/models/NewUser';
 
-export const authenticate = async (authenticationRequest: AuthenticationRequest) => {
-  return await axios.post(`/auth/login`, authenticationRequest);
+export const authenticate = (authenticationRequest: AuthenticationRequest) => {
+  return axios.post(`/auth/login`, authenticationRequest);
 };
 
-export const register = async (newUser: NewUser) => {
-  return await axios.post('auth/register', newUser);
+export const register = (newUser: NewUser) => {
+  return axios.post('auth/register', newUser);
 };
 
 export const getUserIdFromToken = () => {

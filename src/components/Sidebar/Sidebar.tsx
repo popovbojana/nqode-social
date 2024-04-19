@@ -15,7 +15,7 @@ const Sidebar: React.FC<SidebarProps> = ({ items }) => {
   const id = getUserIdFromToken();
 
   const isActive = (itemPath: string) => {
-    return location.pathname === itemPath ? classes['c-sidebar__link--active'] : '';
+    return location.pathname.includes(itemPath) ? classes['c-sidebar__link--active'] : '';
   };
 
   const handleLogout = () => {
