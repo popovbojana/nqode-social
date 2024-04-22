@@ -100,53 +100,51 @@ const UserSettinsPage: React.FC = () => {
   };
 
   return (
-    <Layout
-      children={
-        <div className={`${classes['c-settings-page']}`}>
-          <Card title='Update profile'>
-            <form className={`${classes['c-settings-page__form']}`} onSubmit={handleSubmit}>
-              <Input
-                value={updatedUser.email}
-                name='email'
-                onChange={handleInputChange}
-                error={validationErrors.email}
-              />
-              <Input
-                value={updatedUser.firstName}
-                name='firstName'
-                onChange={handleInputChange}
-                error={validationErrors.firstName}
-              />
-              <Input
-                value={updatedUser.lastName}
-                name='lastName'
-                onChange={handleInputChange}
-                error={validationErrors.lastName}
-              />
-              <Input
-                value={updatedUser.username}
-                name='username'
-                onChange={handleInputChange}
-                error={validationErrors.username}
-              />
+    <Layout>
+      <div className={`${classes['c-settings-page']}`}>
+        <Card title='Update profile' variant='center'>
+          <form className={`${classes['c-settings-page__form']}`} onSubmit={handleSubmit}>
+            <Input
+              value={updatedUser.email}
+              name='email'
+              onChange={handleInputChange}
+              error={validationErrors.email}
+            />
+            <Input
+              value={updatedUser.firstName}
+              name='firstName'
+              onChange={handleInputChange}
+              error={validationErrors.firstName}
+            />
+            <Input
+              value={updatedUser.lastName}
+              name='lastName'
+              onChange={handleInputChange}
+              error={validationErrors.lastName}
+            />
+            <Input
+              value={updatedUser.username}
+              name='username'
+              onChange={handleInputChange}
+              error={validationErrors.username}
+            />
 
-              <Input
-                type='number'
-                value={updatedUser.phoneNumber}
-                name='phoneNumber'
-                onChange={handleInputChange}
-                error={validationErrors.phoneNumber}
-              />
-              <Button label='Save changes' />
-              <Message
-                icon={<ExclamationCircleIcon width={16} height={16} />}
-                message={errorMessage}
-              />
-            </form>
-          </Card>
-        </div>
-      }
-    />
+            <Input
+              type='number'
+              value={updatedUser.phoneNumber}
+              name='phoneNumber'
+              onChange={handleInputChange}
+              error={validationErrors.phoneNumber}
+            />
+            <Button label='Save changes' />
+            <Message
+              icon={<ExclamationCircleIcon width={16} height={16} />}
+              message={errorMessage}
+            />
+          </form>
+        </Card>
+      </div>
+    </Layout>
   );
 };
 

@@ -83,7 +83,7 @@ const LoginPage: React.FC = () => {
   return (
     <div className={`${classes['c-login-page']}`}>
       <div className={`${classes['c-login-page__container']}`}>
-        <Card title='nQode Social Network'>
+        <Card title='nQode Social Network' variant='center'>
           <form className={`${classes['c-login-page__form']}`} onSubmit={handleSubmit}>
             <Input
               label='Username'
@@ -120,7 +120,7 @@ const LoginPage: React.FC = () => {
             />
           </form>
         </Card>
-        <Card>
+        <Card variant='center'>
           <div className={`${classes['c-login-page__link']}`}>
             <p>Don't have an account?</p>
             <Link to='/registration' className={`${classes['c-login-page__link-text']}`}>

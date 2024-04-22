@@ -3,6 +3,8 @@
 .c-home-page {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  padding: 0 $space-xxxl;
 
   &__user-info {
     display: flex;
