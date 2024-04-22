@@ -17,10 +17,12 @@ const Input: React.FC<InputProps> = ({
   error = false
 }) => {
   return (
-    <div className={`${classes['c-input']} ${classes[error ? 'c-input--error' : '']}`}>
+    <div
+      className={`${classes['c-input']} ${classes[error ? 'c-input--error' : '']} ${classes[type === 'file' ? 'c-input--type' : '']} `}
+    >
       <input
         type={type || 'text'}
-        className={`${classes['c-input__field']}`}
+        className={`${classes['c-input__field']} ${classes[type === 'file' ? 'c-input__field--file' : '']}`}
         placeholder={label}
         name={name}
         value={value}

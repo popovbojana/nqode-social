@@ -57,6 +57,26 @@
         transition: 0.2s;
       }
     }
+
+    &--file {
+      &::file-selector-button {
+        padding: $space-xs $space-l;
+        margin-top: $space-m;
+        border: $space-xxxs solid $color-dark-purple;
+        border-radius: $space-xs;
+
+        background: $color-dark-purple;
+        color: $color-white;
+
+        font-size: $fs-medium;
+        cursor: pointer;
+
+        &:hover {
+          background: $color-white;
+          color: $color-dark-purple;
+        }
+      }
+    }
   }
 
   &__label {
@@ -76,5 +96,10 @@
 
   &--error {
     border-bottom: $space-xxs solid $color-red;
+  }
+
+  &--type {
+    border-bottom: none;
+    padding-top: none;
   }
 }
