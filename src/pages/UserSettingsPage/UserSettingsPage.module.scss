@@ -1,15 +1,16 @@
 @import 'src/styles/settings.scss';
 
 .c-settings-page {
-  height: $layout-height;
+  display: flex;
   width: $layout-width;
 
   justify-content: center;
   align-items: center;
-  display: flex;
+
+  margin-top: $space-xxl;
 
   &__form {
-    width: 500px;
+    width: $container-width;
 
     display: flex;
     flex-direction: column;

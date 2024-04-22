@@ -33,7 +33,9 @@ $space-s: 0.5rem; // 8px
 $space: 1rem; // 16px
 $space-m: 1.25rem; // 20px
 $space-l: 1.5rem; // 24px
-$space-xl: 3rem; // 48px
+$space-xl: 2.5rem; // 40px
+$space-xxl: 3rem; // 48px
+$space-xxl: 3.75rem; // 60px
 
 // Shadow
 $shadow-h-offset: 0;
@@ -41,7 +43,8 @@ $shadow-v-offset: 0.3125rem; // 5px
 $shadow-blur: 0.9375rem; // 15px
 
 // Layout
-$layout-height: 100vh;
+$layout-height: 100dvh;
+$layout-full-height: 100%;
 $layout-width: 100%;
 
 // Layout width
