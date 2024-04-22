@@ -35,9 +35,11 @@ const UserProfilePage: React.FC = () => {
             </div>
             <div className={`${classes['c-user-profile-page__data']}`}>
               <div className={`${classes['c-user-profile-page__text']}`}>
-                <span className={`${classes['c-user-profile-page__text--important']}`}>
-                  {user?.username}
-                </span>
+                {user?.username && (
+                  <span className={`${classes['c-user-profile-page__text--important']}`}>
+                    {`@${user.username}`}
+                  </span>
+                )}
                 <span>
                   {user?.firstName} {user?.lastName}
                 </span>

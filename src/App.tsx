@@ -6,6 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import UserProfilePage from './pages/UserProfilePage/UserProfilePage';
 import UserSettinsPage from './pages/UserSettingsPage/UserSettingsPage';
+import HomePage from './pages/HomePage/HomePage';
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         <Route path='/' element={<ProtectedRoute />}>
           <Route path='profile/:id' element={<UserProfilePage />} />
           <Route path='settings' element={<UserSettinsPage />} />
+          <Route path='home' element={<HomePage />} />
         </Route>
       </Routes>
     </>

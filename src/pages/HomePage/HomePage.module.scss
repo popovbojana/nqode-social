@@ -1,0 +1,28 @@
+@import 'src/styles/settings.scss';
+
+.c-home-page {
+  display: flex;
+  justify-content: center;
+
+  &__user-info {
+    display: flex;
+    align-items: center;
+    width: $layout-width;
+  }
+
+  &__icon {
+    width: $space-xxl;
+    height: $space-xxl;
+
+    color: $color-light-purple;
+  }
+
+  &__submit {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__submit-button {
+    margin-top: $fs-extra-large;
+  }
+}
