@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Button.module.scss';
 
 interface ButtonProps {
-  variant?: 'secondary';
+  variant?: string;
   label: string;
   onClick?: () => void;
 }

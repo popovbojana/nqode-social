@@ -8,18 +8,26 @@ import PostData from 'src/models/Post';
 import { useNavigate, useParams } from 'react-router-dom';
 import Post from 'src/components/Post/Post';
 import { getPosts } from 'src/services/PostService';
+import Button from 'src/components/core/Button/Button';
+import { getUserIdFromToken } from 'src/services/AuthService';
+import { createFriendRequest, getFriendRequest } from 'src/services/FriendRequestService';
+import { toast } from 'react-toastify';
+import FriendRequestData from 'src/models/FriendRequest';
 
 const UserProfilePage: React.FC = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState<User>();
   const [posts, setPosts] = useState<PostData[]>([]);
   const { id } = useParams();
+  const [loggedUserId, setLoggedUserId] = useState();
+  const [friendRequest, setFriendRequest] = useState<FriendRequestData | null>(null);
 
   useEffect(() => {
     getUser(Number.parseInt(id ?? ''))
       .then((response) => {
         if (response.status == 200) {
           setUser(response.data);
+          setLoggedUserId(getUserIdFromToken());
         }
       })
       .catch((error) => {
@@ -31,6 +39,24 @@ const UserProfilePage: React.FC = () => {
       setPosts(response.data);
     });
   }, [id, navigate]);
+
+  const handleAddFriend = () => {
+    createFriendRequest(loggedUserId!, Number.parseInt(id ?? '')).then(() => {
+      toast.success(`Successfully sent friend request to ${user?.username}!`);
+    });
+  };
+
+  useEffect(() => {
+    getFriendRequest(loggedUserId ?? -1, user?.id ?? -1)
+      .then((response) => {
+        setFriendRequest(response.data);
+      })
+      .catch((error) => {
+        if (error.response.status == 404) {
+          setFriendRequest(null);
+        }
+      });
+  }, [loggedUserId, user]);
 
   return (
     <Layout>
@@ -49,6 +75,30 @@ const UserProfilePage: React.FC = () => {
               <span>
                 {user?.firstName} {user?.lastName}
               </span>
+
+              {friendRequest ? (
+                <>
+                  <span className={`${classes['c-user-profile-page__text--request-info']}`}>
+                    {friendRequest.status === 'ACCEPTED' && (
+                      <Button label='Friends' variant='disabled' />
+                    )}
+                  </span>
+                  <span className={`${classes['c-user-profile-page__text--request-info']}`}>
+                    {friendRequest.status === 'PENDING' && (
+                      <Button label='Waiting for response' variant='disabled' />
+                    )}
+                  </span>
+                  <span className={`${classes['c-user-profile-page__text--request-info']}`}>
+                    {friendRequest.status === 'REJECTED' && (
+                      <Button label='Rejected response' variant='disabled' />
+                    )}
+                  </span>
+                </>
+              ) : (
+                loggedUserId != user?.id && (
+                  <Button label='Send friend request' onClick={handleAddFriend} />
+                )
+              )}
             </div>
             <div className={`${classes['c-user-profile-page__text']}`}>
               <span className={`${classes['c-user-profile-page__text--important']}`}>

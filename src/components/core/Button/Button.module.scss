@@ -26,4 +26,12 @@
       color: $color-white;
     }
   }
+
+  &--disabled {
+    background: $color-dark-purple;
+    color: $color-white;
+
+    cursor: default;
+    pointer-events: none;
+  }
 }

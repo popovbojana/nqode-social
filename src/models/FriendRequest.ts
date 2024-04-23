@@ -1,4 +1,4 @@
-export default interface FriendRequest {
+export default interface FriendRequestData {
   fromUserId: number;
   toUserId: number;
   status: string;

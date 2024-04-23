@@ -4,10 +4,9 @@ import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { searchForUsers } from 'src/services/UserService';
 import User from 'src/models/User';
 import { toast } from 'react-toastify';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const SearchBar: React.FC = () => {
-  const navigate = useNavigate();
   const [results, setResults] = useState<User[]>([]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {

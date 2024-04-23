@@ -1,6 +1,19 @@
 @import 'src/styles/settings.scss';
 
 .c-friend-requests-page {
-  height: 100vh;
-  //   background-color: aqua;
+  text-align: center;
+  color: $color-dark-purple;
+  font-weight: $fw-semi-bold;
+
+  &__requests {
+    display: flex;
+    justify-content: space-around;
+
+    flex-direction: row;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: $fs-large;
+  }
 }
