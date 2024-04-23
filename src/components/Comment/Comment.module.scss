@@ -1,0 +1,32 @@
+@import 'src/styles/settings.scss';
+
+.c-comment {
+  margin: $space-s;
+
+  &__data {
+    display: flex;
+
+    margin-bottom: $space-s;
+
+    font-size: $fs-medium;
+    color: $color-dark-purple;
+  }
+
+  &__text {
+    margin-left: $space-s;
+
+    font-weight: $fw-medium;
+    color: $color-black;
+  }
+
+  &__date {
+    color: $color-light-purple;
+  }
+
+  &__no-replies {
+    margin-top: $space-m;
+
+    color: $color-dark-purple;
+    font-weight: $fw-medium;
+  }
+}

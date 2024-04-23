@@ -18,6 +18,7 @@ const UserProfilePage: React.FC = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState<User>();
   const [posts, setPosts] = useState<PostData[]>([]);
+  const [buttonLabel, setButtonLabel] = useState('Waiting for response');
   const { id } = useParams();
   const [loggedUserId, setLoggedUserId] = useState();
   const [friendRequest, setFriendRequest] = useState<FriendRequestData | null>(null);
@@ -41,8 +42,12 @@ const UserProfilePage: React.FC = () => {
   }, [id, navigate]);
 
   const handleAddFriend = () => {
-    createFriendRequest(loggedUserId!, Number.parseInt(id ?? '')).then(() => {
-      toast.success(`Successfully sent friend request to ${user?.username}!`);
+    createFriendRequest(loggedUserId!, Number.parseInt(id ?? '')).then((response) => {
+      if (response.status === 201) {
+        setFriendRequest(response.data);
+        setButtonLabel('Waiting for response');
+        toast.success(`Successfully sent friend request to ${user?.username}!`);
+      }
     });
   };
 
@@ -50,6 +55,11 @@ const UserProfilePage: React.FC = () => {
     getFriendRequest(loggedUserId ?? -1, user?.id ?? -1)
       .then((response) => {
         setFriendRequest(response.data);
+        if (response.data.status === 'ACCEPTED') {
+          setButtonLabel('Friends');
+        } else if (response.data.status === 'REJECTED') {
+          setButtonLabel('Request rejected');
+        }
       })
       .catch((error) => {
         if (error.response.status == 404) {
@@ -79,19 +89,7 @@ const UserProfilePage: React.FC = () => {
               {friendRequest ? (
                 <>
                   <span className={`${classes['c-user-profile-page__text--request-info']}`}>
-                    {friendRequest.status === 'ACCEPTED' && (
-                      <Button label='Friends' variant='disabled' />
-                    )}
-                  </span>
-                  <span className={`${classes['c-user-profile-page__text--request-info']}`}>
-                    {friendRequest.status === 'PENDING' && (
-                      <Button label='Waiting for response' variant='disabled' />
-                    )}
-                  </span>
-                  <span className={`${classes['c-user-profile-page__text--request-info']}`}>
-                    {friendRequest.status === 'REJECTED' && (
-                      <Button label='Rejected response' variant='disabled' />
-                    )}
+                    <Button label={buttonLabel} variant='disabled' />
                   </span>
                 </>
               ) : (

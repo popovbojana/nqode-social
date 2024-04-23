@@ -42,4 +42,11 @@
   &__description {
     padding: $space-m;
   }
+
+  &__no-comments {
+    margin-top: $space-m;
+
+    color: $color-dark-purple;
+    font-weight: $fw-medium;
+  }
 }
