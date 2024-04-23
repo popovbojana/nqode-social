@@ -1,0 +1,45 @@
+@import 'src/styles/settings.scss';
+
+.c-post {
+  display: flex;
+  justify-content: center;
+
+  &__post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__user-data {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__post-data {
+    display: flex;
+    flex-direction: column;
+    border: $space-xxxs solid $color-light-purple;
+    border-radius: $space-s;
+    padding: $space-xs;
+  }
+
+  &__username {
+    color: $color-dark-purple;
+  }
+
+  &__date {
+    color: $color-light-purple;
+  }
+
+  &__icon {
+    width: $space-xxl;
+    height: $space-xxl;
+
+    color: $color-light-purple;
+  }
+
+  &__description {
+    padding: $space-m;
+  }
+}

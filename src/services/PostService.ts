@@ -16,3 +16,11 @@ export const createPost = (id: number, newPost: NewPost) => {
     }
   });
 };
+
+export const getPosts = (id: number) => {
+  return axios.get(`/users/${id}/posts`);
+};
+
+export const getFriendsPost = (id: number) => {
+  return axios.get(`/users/${id}/friends-posts`);
+};

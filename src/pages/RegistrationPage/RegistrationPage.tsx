@@ -87,7 +87,7 @@ const RegistrationPage: React.FC = () => {
   return (
     <div className={`${classes['c-registration-page']}`}>
       <div className={`${classes['c-registration-page__container']}`}>
-        <Card title='nQode Social Network'>
+        <Card title='nQode Social Network' variant='center'>
           <form className={`${classes['c-registration-page__form']}`} onSubmit={handleSubmit}>
             <Input
               label='Email'
@@ -153,7 +153,7 @@ const RegistrationPage: React.FC = () => {
             />
           </form>
         </Card>
-        <Card>
+        <Card variant='center'>
           <div className={`${classes['c-registration-page__link']}`}>
             <span>Already have an account?</span>
             <Link to='/login' className={`${classes['c-registration-page__link-text']}`}>

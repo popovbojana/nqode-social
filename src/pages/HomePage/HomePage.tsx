@@ -10,12 +10,15 @@ import User from 'src/models/User';
 import { getUser } from 'src/services/UserService';
 import { getUserIdFromToken } from 'src/services/AuthService';
 import NewPost from 'src/models/NewPost';
-import { createPost } from 'src/services/PostService';
+import { createPost, getFriendsPost } from 'src/services/PostService';
 import { toast } from 'react-toastify';
 import Message from 'src/components/Message/Message';
+import PostData from 'src/models/Post';
+import Post from 'src/components/Post/Post';
 
 const HomePage: React.FC = () => {
   const [user, setUser] = useState<User>();
+  const [posts, setPosts] = useState<PostData[]>([]);
   const id = getUserIdFromToken();
 
   const [newPost, setNewPost] = useState<NewPost>({
@@ -30,6 +33,9 @@ const HomePage: React.FC = () => {
       if (response.status == 200) {
         setUser(response.data);
       }
+    });
+    getFriendsPost(Number.parseInt(id ?? '')).then((response) => {
+      setPosts(response.data);
     });
   }, [id]);
 
@@ -50,7 +56,6 @@ const HomePage: React.FC = () => {
     event.preventDefault();
 
     if (newPost.description.trim() !== '') {
-      console.log(newPost);
       createPost(id, newPost)
         .then(() => {
           toast.success('Successfully created post!');
@@ -73,43 +78,46 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <Layout
-      children={
-        <div className={`${classes['c-home-page']}`}>
-          <Card
-            children={
-              <>
-                <div className={`${classes['c-home-page__user-info']}`}>
-                  <UserCircleIcon className={`${classes['c-home-page__icon']}`} />
-                  {user?.username && <span>{`@${user.username}`}</span>}
+    <Layout>
+      <div className={`${classes['c-home-page']}`}>
+        <Card>
+          <div className={`${classes['c-home-page__create-post']}`}>
+            <div className={`${classes['c-home-page__user-info']}`}>
+              <UserCircleIcon className={`${classes['c-home-page__icon']}`} />
+              {user?.username && (
+                <span>
+                  <i>{`@${user.username}`}</i>
+                </span>
+              )}
+            </div>
+            <div className={`${classes['c-home-page__post-form']}`}>
+              <form onSubmit={handleSubmit}>
+                <textarea
+                  rows={10}
+                  cols={100}
+                  placeholder='What are you thinking about?'
+                  value={newPost.description}
+                  onChange={handleInputChange}
+                />
+                <div className={`${classes['c-home-page__submit']}`}>
+                  <Input type='file' error onChange={handleFileUpload} />
+                  <div className={`${classes['c-home-page__submit-button']}`}>
+                    <Button label='Create post' />
+                  </div>
                 </div>
-                <div className={`${classes['c-home-page__post-form']}`}>
-                  <form onSubmit={handleSubmit}>
-                    <textarea
-                      rows={10}
-                      cols={100}
-                      placeholder='What are you thinking about?'
-                      value={newPost.description}
-                      onChange={handleInputChange}
-                    />
-                    <div className={`${classes['c-home-page__submit']}`}>
-                      <Input type='file' error onChange={handleFileUpload} />
-                      <div className={`${classes['c-home-page__submit-button']}`}>
-                        <Button label='Create post' />
-                      </div>
-                    </div>
-                    <Message
-                      icon={<ExclamationCircleIcon width={16} height={16} />}
-                      message={errorMessage}
-                    />
-                  </form>
-                </div>
-              </>
-            }
-          />
-        </div>
-      }
-    />
+                <Message
+                  icon={<ExclamationCircleIcon width={16} height={16} />}
+                  message={errorMessage}
+                />
+              </form>
+            </div>
+          </div>
+        </Card>
+        {posts.map((post) => (
+          <Post key={post.id} post={post} />
+        ))}
+      </div>
+    </Layout>
   );
 };
 
