@@ -65,4 +65,24 @@
   &__posts {
     margin: $space-xxl;
   }
+
+  &__no-posts {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    color: $color-dark-purple;
+    text-align: center;
+  }
+
+  &__no-posts-text {
+    font-size: $fs-extra-large;
+    font-weight: $fw-extra-bold;
+
+    margin-bottom: $space-m;
+  }
+
+  &__no-posts-img {
+    width: $photo-width;
+  }
 }

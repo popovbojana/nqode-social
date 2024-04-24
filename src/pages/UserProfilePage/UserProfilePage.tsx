@@ -13,6 +13,7 @@ import { getUserIdFromToken } from 'src/services/AuthService';
 import { createFriendRequest, getFriendRequest } from 'src/services/FriendRequestService';
 import { toast } from 'react-toastify';
 import FriendRequestData from 'src/models/FriendRequest';
+import noPosts from 'src/assets/images/no-posts.svg';
 
 const UserProfilePage: React.FC = () => {
   const navigate = useNavigate();
@@ -113,9 +114,16 @@ const UserProfilePage: React.FC = () => {
           </div>
         </div>
         <div className={`${classes['c-user-profile-page__posts']}`}>
-          {posts.map((post) => (
-            <Post key={post.id} post={post} />
-          ))}
+          {posts.length > 0 ? (
+            <> {posts.map((post) => <Post key={post.id} post={post} />).reverse()}</>
+          ) : (
+            <div className={`${classes['c-user-profile-page__no-posts']}`}>
+              <div className={`${classes['c-user-profile-page__no-posts-text']}`}>
+                No posts yet.
+              </div>
+              <img src={noPosts} className={`${classes['c-user-profile-page__no-posts-img']}`} />
+            </div>
+          )}
         </div>
       </div>
     </Layout>

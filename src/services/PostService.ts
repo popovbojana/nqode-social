@@ -24,3 +24,7 @@ export const getPosts = (id: number) => {
 export const getFriendsPost = (id: number) => {
   return axios.get(`/users/${id}/friends-posts`);
 };
+
+export const deletePost = (id: number) => {
+  return axios.delete(`/posts/${id}`);
+};
