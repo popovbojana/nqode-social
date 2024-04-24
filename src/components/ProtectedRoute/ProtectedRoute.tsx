@@ -11,7 +11,6 @@ const ProtectedRoute: React.FC = () => {
       navigate('/login');
     }
   }, [navigate]);
-
   return <Outlet />;
 };
 

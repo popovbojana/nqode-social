@@ -12,5 +12,7 @@ export const register = (newUser: NewUser) => {
 };
 
 export const getUserIdFromToken = () => {
+  const token = localStorage.getItem('token');
+  if (!token) return;
   return jwtDecode(JSON.parse(localStorage.getItem('token')!)).id;
 };

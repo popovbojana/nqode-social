@@ -15,8 +15,10 @@ import { toast } from 'react-toastify';
 import Message from 'src/components/Message/Message';
 import PostData from 'src/models/Post';
 import Post from 'src/components/Post/Post';
+import { useNavigate } from 'react-router-dom';
 
 const HomePage: React.FC = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState<User>();
   const [posts, setPosts] = useState<PostData[]>([]);
   const id = getUserIdFromToken();
@@ -59,11 +61,7 @@ const HomePage: React.FC = () => {
       createPost(id, newPost)
         .then(() => {
           toast.success('Successfully created post!');
-          setNewPost({
-            description: '',
-            file: null
-          });
-          setErrorMessage('');
+          navigate(`/profile/${id}`);
         })
         .catch((error) => {
           if (error.response.status == 400) {
@@ -113,9 +111,7 @@ const HomePage: React.FC = () => {
             </div>
           </div>
         </Card>
-        {posts.map((post) => (
-          <Post key={post.id} post={post} />
-        ))}
+        {posts.map((post) => <Post key={post.id} post={post} />).reverse()}
       </div>
     </Layout>
   );

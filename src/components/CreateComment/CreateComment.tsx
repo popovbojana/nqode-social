@@ -44,7 +44,7 @@ const CreateComment: React.FC<CreateCommentProps> = ({
         .then((response) => {
           toast.success('Successfully commented!');
           setNewComment({ ...newComment, comment: '' });
-          updateParent([{ ...response.data, replies: [] }, ...comments]);
+          updateParent([...comments, { ...response.data, replies: [] }]);
           setErrorMessage('');
         })
         .catch((error) => {

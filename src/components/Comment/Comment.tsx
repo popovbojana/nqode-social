@@ -52,9 +52,7 @@ const Comment: React.FC<CommentProps> = ({ comment }) => {
             />
             {showReplies && (
               <div>
-                {replies.map((reply) => (
-                  <Comment key={reply.id} comment={reply} />
-                ))}
+                {replies.map((reply) => <Comment key={reply.id} comment={reply} />).reverse()}
               </div>
             )}
           </div>

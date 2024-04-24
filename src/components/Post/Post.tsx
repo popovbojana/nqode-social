@@ -1,4 +1,4 @@
-import { UserCircleIcon } from '@heroicons/react/24/solid';
+import { UserCircleIcon, TrashIcon } from '@heroicons/react/24/solid';
 import Card from '../Card/Card';
 import classes from './Post.module.scss';
 import User from 'src/models/User';
@@ -11,6 +11,8 @@ import Button from '../core/Button/Button';
 import CreateComment from '../CreateComment/CreateComment';
 import { getUserIdFromToken } from 'src/services/AuthService';
 import CommentData from 'src/models/CommentData';
+import { deletePost } from 'src/services/PostService';
+import { toast } from 'react-toastify';
 
 interface PostProps {
   post: PostData;
@@ -71,9 +73,8 @@ const Post: React.FC<PostProps> = ({ post }) => {
               <>
                 {comments
                   .filter((comment) => comment.parentCommentId === null)
-                  .map((comment) => (
-                    <Comment key={comment.id} comment={comment} />
-                  ))}
+                  .map((comment) => <Comment key={comment.id} comment={comment} />)
+                  .reverse()}
               </>
             )}
           </>
