@@ -29,43 +29,41 @@ const FriendRequestsPage: React.FC = () => {
   }, [friendRequests, id, navigate]);
 
   return (
-    <Layout
-      children={
-        <div className={`${classes['c-friend-requests-page']}`}>
-          <h1>Friend requests</h1>
-          <div className={`${classes['c-friend-requests-page__requests']}`}>
-            <div className={`${classes['c-friend-requests-page__requests--received']}`}>
-              <span className={`${classes['c-friend-requests-page__title']}`}>
-                Received <ArrowDownTrayIcon width={25} />
-              </span>
-              {friendRequests
-                .filter((request) => request.toUserId === id)
-                .map((request) => (
-                  <FriendRequest
-                    key={`${request.fromUserId}-${request.toUserId}`}
-                    userId={id}
-                    friendRequest={request}
-                  />
-                ))}
-            </div>
-            <div className={`${classes['c-friend-requests-page__requests--sent']}`}>
-              <span className={`${classes['c-friend-requests-page__title']}`}>
-                Sent <ArrowUpTrayIcon width={25} />
-              </span>
-              {friendRequests
-                .filter((request) => request.fromUserId === id)
-                .map((request) => (
-                  <FriendRequest
-                    key={`${request.fromUserId}-${request.toUserId}`}
-                    userId={id}
-                    friendRequest={request}
-                  />
-                ))}
-            </div>
+    <Layout>
+      <div className={`${classes['c-friend-requests-page']}`}>
+        <h1>Friend requests</h1>
+        <div className={`${classes['c-friend-requests-page__requests']}`}>
+          <div className={`${classes['c-friend-requests-page__requests--received']}`}>
+            <span className={`${classes['c-friend-requests-page__title']}`}>
+              Received <ArrowDownTrayIcon width={25} />
+            </span>
+            {friendRequests
+              .filter((request) => request.toUserId === id)
+              .map((request) => (
+                <FriendRequest
+                  key={`${request.fromUserId}-${request.toUserId}`}
+                  userId={id}
+                  friendRequest={request}
+                />
+              ))}
+          </div>
+          <div className={`${classes['c-friend-requests-page__requests--sent']}`}>
+            <span className={`${classes['c-friend-requests-page__title']}`}>
+              Sent <ArrowUpTrayIcon width={25} />
+            </span>
+            {friendRequests
+              .filter((request) => request.fromUserId === id)
+              .map((request) => (
+                <FriendRequest
+                  key={`${request.fromUserId}-${request.toUserId}`}
+                  userId={id}
+                  friendRequest={request}
+                />
+              ))}
           </div>
         </div>
-      }
-    />
+      </div>
+    </Layout>
   );
 };
 
