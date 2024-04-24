@@ -1,0 +1,15 @@
+@import 'src/styles/settings.scss';
+
+.c-create-comment {
+  display: flex;
+  align-items: end;
+
+  &__textarea {
+    width: $layout-width;
+    margin: 0 $space-s $space-s 0;
+  }
+
+  &__button {
+    margin: $space-s 0 $space-s 0;
+  }
+}
