@@ -42,7 +42,7 @@ const Sidebar: React.FC<SidebarProps> = ({ items }) => {
       <div>
         <Link
           to={`/profile/${id}`}
-          className={`${classes['c-sidebar__link']} ${isActive('/profile')}`}
+          className={`${classes['c-sidebar__link']} ${isActive(`/profile/${id}`)}`}
         >
           <UserIcon className={`${classes['c-sidebar__icon']}`} />
           <span>Profile</span>

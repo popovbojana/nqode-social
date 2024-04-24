@@ -8,6 +8,7 @@ import UserProfilePage from './pages/UserProfilePage/UserProfilePage';
 import UserSettinsPage from './pages/UserSettingsPage/UserSettingsPage';
 import HomePage from './pages/HomePage/HomePage';
 import FriendRequestsPage from './pages/FriendRequestsPage/FriendRequestsPage';
+import FriendsPage from './pages/FriendsPage/FriendsPage';
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
           <Route path='settings' element={<UserSettinsPage />} />
           <Route path='home' element={<HomePage />} />
           <Route path='friend-requests' element={<FriendRequestsPage />} />
+          <Route path='friends' element={<FriendsPage />} />
         </Route>
       </Routes>
     </>

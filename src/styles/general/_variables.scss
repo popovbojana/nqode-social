@@ -37,7 +37,8 @@ $space-l: 1.5rem; // 24px
 $space-xl: 2.5rem; // 40px
 $space-xxl: 3rem; // 48px
 $space-xxl: 3.75rem; // 60px
-$space-xxxl: 10rem; // 160px
+$space-xxxl: 6.25rem; // 100px
+$space-xxxxl: 10rem; // 160px
 
 // Shadow
 $shadow-h-offset: 0;
@@ -48,10 +49,11 @@ $shadow-blur: 0.9375rem; // 15px
 $layout-height: 100dvh;
 $layout-full-height: 100%;
 $layout-width: 100%;
+$layout-half-width: 48%;
 
 // Layout width
 $form-width: 75%;
 $container-width: 31.25rem; // 500px
 $sidebar-width: 18.75rem; // 300px
-$photo-width: 12.5rem; // 200 px
+$photo-width: 12.5rem; // 200px
 $column-width: 33.33%;

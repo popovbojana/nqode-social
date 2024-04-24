@@ -1,0 +1,28 @@
+@import 'src/styles/settings.scss';
+
+.c-friend {
+  display: flex;
+  justify-content: space-around;
+
+  &__user-data {
+    padding: 0 $space-xxxl 0 $space-xxxl;
+  }
+
+  &__icon {
+    width: $space-xxxxl;
+    color: $color-light-purple;
+  }
+
+  &__text {
+    color: $color-medium-purple;
+
+    &--important {
+      color: $color-dark-purple;
+      font-size: $fs-large;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
