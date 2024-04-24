@@ -50,8 +50,15 @@
     &--important {
       font-style: normal;
       font-size: $fs-extra-large;
-      font-weight: $fw-extra-bold;
+      font-weight: $fw-bold;
       color: $color-dark-purple;
+    }
+
+    &--request-info {
+      font-style: normal;
+      font-size: $fs-large;
+      font-weight: $fw-extra-bold;
+      color: $color-medium-purple;
     }
   }
 

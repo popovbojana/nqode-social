@@ -17,4 +17,9 @@
   &--center {
     align-items: center;
   }
+
+  &--friend-request {
+    padding: $space-m;
+    margin: $space-s;
+  }
 }

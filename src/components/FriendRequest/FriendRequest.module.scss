@@ -1,0 +1,45 @@
+@import 'src/styles/settings.scss';
+
+.c-friend-request {
+  display: flex;
+
+  &__data {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    width: $sidebar-width;
+
+    font-size: $fs-medium;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: $color-medium-purple;
+
+    padding: $space-m;
+
+    &--important {
+      margin-bottom: $space-m;
+
+      font-weight: $fw-medium;
+      color: $color-dark-purple;
+    }
+  }
+
+  &__icon {
+    margin: none;
+    width: $fs-extra-large;
+
+    &--accepted {
+      color: $color-green;
+    }
+
+    &--rejected {
+      color: $color-red;
+    }
+  }
+}
